@@ -1,0 +1,53 @@
+pre,
+pre code,
+h1 {
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    line-height: 1.28;
+    position: relative;
+    font-variant-numeric: tabular-nums;
+}
+
+.h1,
+h1 {
+    font-size: 36px
+}
+
+.forecast-Backward {
+    width: 6em
+}
+
+.forecast-Forward {
+    width: 6em
+}
+
+.backwards-button {
+    align-content: left
+}
+
+.forwards-button {
+    align-content: right
+}
+
+.forecast-region {
+    float: right;
+}
+
+.forecast-button-region {
+    width: 6em;
+}
+
+#header {
+    color: #000;
+    text-align: center;
+    font-weight: 700
+}
+
+#logo {
+    background-color: #fff
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto
+}
