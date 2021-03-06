@@ -117,6 +117,10 @@ class Forecast {
             }
         })
 
+        window.addEventListener("resize", function() {
+            self.update()
+        });
+
         this._baseDate = new Date()
         this._offset = 0
         this._dailyOrder = new DailyOrder(data["dailyOrder"])
@@ -157,11 +161,19 @@ class Forecast {
 
         this._output.clear()
 
+        var screenBig = window.screen.width < 735
         var key = this._region + '_name(en)'
-        var featureString = this._region == 'jp' ? ' (Featured Quest)' : ' (Recommended Quest)'
+        var jpFeature = screenBig ? ' (Feat.)' : ' (Featured Quest)'
+        var globalRecommanded = screenBig ? ' (Rec.)' : ' (Recommended Quest)'
+        var featureString = this._region == 'jp' ? jpFeature : globalRecommanded
 
         var printCO = function(order) {
-            self._output.println(' ' + order[key].padEnd(50, ' ') + '\tMeseta: ' + order['meseta'] + '\tExp: ' + order['exp'])
+            if (screenBig) {
+                self._output.println(' ' + order[key])
+                self._output.println('  ' + '\tMeseta: ' + order['meseta'] + '\tExp: ' + order['exp'])
+            } else {
+                self._output.println(' ' + order[key].padEnd(50, ' ') + '\tMeseta: ' + order['meseta'] + '\tExp: ' + order['exp'])
+            }
         }
 
         for (var cur = new Date(begin.valueOf()); cur < end; cur = cur.addDays(1)) {

@@ -1,24 +1,51 @@
-pre,
-pre code,
-h1 {
-    font-family: 'Courier Prime', monospace;
-    font-size: 14px;
-    line-height: 1.28;
-    position: relative;
-    font-variant-numeric: tabular-nums;
+@media screen and (min-width: 600px) {
+    pre,
+    pre code,
+    h1 {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 14px;
+        line-height: 1.28;
+        position: relative;
+        font-variant-numeric: tabular-nums;
+    }
+    .forecast-Backward {
+        width: 6em
+    }
+    .forecast-Forward {
+        width: 6em
+    }
+    .forecast-button-region {
+        width: 6em;
+    }
+    .h1,
+    h1 {
+        font-size: 36px
+    }
 }
 
-.h1,
-h1 {
-    font-size: 36px
-}
-
-.forecast-Backward {
-    width: 6em
-}
-
-.forecast-Forward {
-    width: 6em
+@media screen and (max-width: 600px) {
+    pre,
+    pre code,
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 4vw;
+        line-height: 1.28;
+        position: relative;
+        font-variant-numeric: tabular-nums;
+    }
+    .forecast-Backward {
+        width: 15vw
+    }
+    .forecast-Forward {
+        width: 15vw
+    }
+    .forecast-button-region {
+        width: 20vw
+    }
+    .h1,
+    h1 {
+        font-size: 6vw
+    }
 }
 
 .backwards-button {
@@ -31,10 +58,6 @@ h1 {
 
 .forecast-region {
     float: right;
-}
-
-.forecast-button-region {
-    width: 6em;
 }
 
 #header {
