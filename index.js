@@ -140,7 +140,9 @@ class Forecast {
         this.update()
     }
     setRegion(region) {
+        this._region = region
         localStorage.setItem("pso2-forecast-region", region)
+        this.update()
     }
     update() {
         var self = this
