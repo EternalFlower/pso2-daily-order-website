@@ -126,7 +126,8 @@ class Forecast {
         this._dailyOrder = new DailyOrder(data["dailyOrder"])
         this._exploration = new Exploration(data["exploration"])
         this._featureQuest = new FeatureQuest(data["featureQuest"])
-        this._levelQuest = new LevelQuest(data["levelQuest"])
+        this._levelQuest_global = new LevelQuest(data["levelQuest_global"])
+        this._levelQuest_jp = new LevelQuest(data["levelQuest_jp"])
         this._extraOrder = new ExtraOrder(data["extraOrder"])
         this._output = new TextConsole(DOMElement.find('.forecast-output'))
 
@@ -191,7 +192,14 @@ class Forecast {
                 this._output.println(' ' + value[key] + featureString)
             })
 
-            var level = this._levelQuest.getLevelQuest(cur, offset)
+            var level;
+
+            if (this._region == 'jp') {
+                level = this._levelQuest_jp.getLevelQuest(cur, offset)
+            } else if (this._region == 'global') {
+                level = this._levelQuest_global.getLevelQuest(cur, offset)
+            }
+            
             this._output.println(' ' + level[key] + featureString)
 
             var daily = this._dailyOrder.getDailyOrders(cur, offset)
